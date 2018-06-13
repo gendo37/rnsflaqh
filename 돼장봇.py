@@ -67,7 +67,7 @@ async def 김블루():
 
 @bot.command()
 
-async def on_message(message):
+async def 시발(message):
 
      if "시발" in message.content:
            await Bot.send_message(message.channel, '어허 그러면 안돼')
