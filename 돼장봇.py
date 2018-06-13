@@ -12,8 +12,7 @@ BOT_PREFIX = ("")
 TOKEN = "NDU1NzIwOTUwNTIxMDA0MDQy.DgAGvA.5s-bfmdnsIRA77JvevDv7_lSfNs"
  
 
-bot = Bot(command_prefix=BOT_PREFIX)
-client = discord.Client()
+bot = commands.Bot("")
 
 @bot.event
 async def on_ready():
@@ -65,7 +64,11 @@ async def 김블루():
 
     ]
     await bot.say(random.choice(possible_responses))
-
+	
+@bot.event
+async def on_message(message):
+    if '시발' in message.content.lower():
+        await bot.send_message(message.channel, f'욕은 자제해주세요, {message.author.name}')
 
 if __name__ == "__main__":
         for extension in startup_extensions:
