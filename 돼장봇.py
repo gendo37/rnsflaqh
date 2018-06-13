@@ -70,16 +70,6 @@ async def on_message(message):
     if '시발' in message.content.lower():
         await bot.send_message(message.channel, f'욕은 자제해주세요, {message.author.name}')
 
-if __name__ == "__main__":
-        for extension in startup_extensions:
-            try:
-                bot.load_extension(extension)
-            except Exception as e:
-                exc = '{}: {}' .format(type(e).__name__, e)
-                print('failed to load extension {}/n{}'.format(extension, exc))
-
-        
-
 
 
 
