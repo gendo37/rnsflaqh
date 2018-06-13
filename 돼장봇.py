@@ -65,14 +65,6 @@ async def 김블루():
     ]
     await bot.say(random.choice(possible_responses))
 	
-@bot.event
-async def on_message(message):
-    elif '시발' in message.content.lower():
-        await bot.send_message(message.channel, f'욕은 자제해주세요, {message.author.name}')
-
-
-
-
 
 
 
