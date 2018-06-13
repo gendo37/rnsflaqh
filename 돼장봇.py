@@ -2,6 +2,7 @@
 import random
 import discord
 
+from discord.ext import commands
 from discord.ext.commands import Bot
 from discord.voice_client import VoiceClient
 
@@ -66,14 +67,10 @@ async def 김블루():
     await bot.say(random.choice(possible_responses))
 
 @bot.event
-async def 시발():
-    possible_responses = [
-        '어그로 끄시면 차단입니다',
-        '욕은 자제 부탁드려요',
-        '욕 하신분 아이디 뭐에요',
+async def on_message(message):
+    if '시발' in message.content.lower():
+        await bot.send_message(message.channel, f'욕은 하시면 안됩니다, {message.author.name}')
 
-    ]
-    await bot.say(random.choice(possible_responses))
 
 if __name__ == "__main__":
         for extension in startup_extensions:
