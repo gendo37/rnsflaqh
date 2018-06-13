@@ -66,10 +66,6 @@ async def 김블루():
     await bot.say(random.choice(possible_responses))
 
 @bot.event
-async def on_message(message):
-    if '시발' in message.content.lower():
-      await bot.send_message(message.channel, f'어허 그러면 안돼', {message.author.name}')
-
 async def 시발():
     possible_responses = [
         '어그로 끄시면 차단입니다',
