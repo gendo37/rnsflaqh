@@ -65,12 +65,10 @@ async def 김블루():
     ]
     await bot.say(random.choice(possible_responses))
 
-@bot.command()
-
-async def 시발(message):
-
-     if "시발" in message.content:
-           await Bot.send_message(message.channel, '어허 그러면 안돼')
+@bot.event
+async def on_message(message):
+    if '시발' in message.content():
+      await bot.send_message(message.channel, '어허 그러면 안돼', {message.author.name}')
 
 async def 시발():
     possible_responses = [
