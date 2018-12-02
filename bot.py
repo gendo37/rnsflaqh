@@ -17,7 +17,7 @@ def load_opus_lib(opus_libs=OPUS_LIBS):
     for opus_lib in opus_libs:
 	    try:
 	        opus.load_opus(opus_lib)
-		return
+	    return
 	    except OSError:
 		pass
 	
