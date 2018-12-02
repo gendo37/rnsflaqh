@@ -6,6 +6,7 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 from discord.voice_client import VoiceClient
 from discord import opus
+import os
 
 OPUS_LIBS = ['libopus-0.x86.dll', 'libopus-0.x64.dll', 'libopus-0.dll', 'libopus.so.0', 'libopus.0.dylib']
  
@@ -23,10 +24,10 @@ def load_opus_lib(opus_libs=OPUS_LIBS):
 	raise RuntimeError('Could not load an opus lib. Tried %s' % (', '.join(opus_libs)))
 
 load_opus_lib()
-
-startup_extensions = ["Music"]
-BOT_PREFIX = ("")
-TOKEN = "NDU1NzIwOTUwNTIxMDA0MDQy.DgAGvA.5s-bfmdnsIRA77JvevDv7_lSfNs"
+api = str(os.environ.get('RIOT_KEY'))
+bot = commands.Bot("")
+for ext in  ["Mus"]:
+    bot.load_extension(ext)
  
 
 bot = commands.Bot("")
@@ -79,4 +80,4 @@ async def 김블루():
 
 
 
-bot.run(TOKEN)
+bot.run(str(os.environ.get('BOT_TOKEN')))
