@@ -18,7 +18,7 @@ def load_opus_lib(opus_libs=OPUS_LIBS):
 	    try:
 	        opus.load_opus(opus_lib)
 	        return
-           except OSError:
+            except OSError:
 	        pass
 	
     raise RuntimeError('Could not load an opus lib. Tried %s' % 
