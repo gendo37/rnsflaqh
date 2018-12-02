@@ -1,6 +1,12 @@
 import asyncio
 import discord
 from discord.ext import commands
+from discord.ext.comands import Bot
+from discord.voice_client import VoiceClient
+from discord import opus
+import functools, youtube_dl
+import random
+import os
 if not discord.opus.is_loaded():
     # the 'opus' library here is opus.dll on windows
     # or libopus.so on linux in the current directory
@@ -99,16 +105,16 @@ class Music:
         except discord.ClientException:
             await self.bot.say('기다리고 있습니다')
         except discord.InvalidArgument:
-            await self.bot.say('This is not a voice channel...')
+            await self.bot.say('보이스 채널이 아니네요;;')
         else:
-            await self.bot.say('Ready to play audio in **' + channel.name)
+            await self.bot.say('노래를 틀 준비가 됬습니다 **' + channel.name)
 
     @commands.command(pass_context=True, no_pm=True)
     async def summon(self, ctx):
         """Summons the bot to join your voice channel."""
         summoned_channel = ctx.message.author.voice_channel
         if summoned_channel is None:
-            await self.bot.say('군청자님들 노래 들으시려면 들어와 주세요')
+            await self.bot.say('꿀꿀단분들 노래 들으시려면 들어와주세요')
             return False
 
         state = self.get_voice_state(ctx.message.server)
@@ -120,7 +126,7 @@ class Music:
         return True
 
     @commands.command(pass_context=True, no_pm=True)
-    async def 림보님(self, ctx, *, song : str):
+    async def 돼장(self, ctx, *, song : str):
         """Plays a song.
         If there is a song currently in the queue, then it is
         queued until the next song is done playing.
@@ -152,7 +158,7 @@ class Music:
             await state.songs.put(entry)
 
     @commands.command(pass_context=True, no_pm=True)
-    async def volume(self, ctx, value : int):
+    async def vol(self, ctx, value : int):
         """Sets the volume of the currently playing song."""
 
         state = self.get_voice_state(ctx.message.server)
@@ -161,7 +167,7 @@ class Music:
             player.volume = value / 100
             await self.bot.say('볼륨은 {:.0%}'.format(player.volume))
     @commands.command(pass_context=True, no_pm=True)
-    async def resume(self, ctx):
+    async def 계속(self, ctx):
         """노래를 계속 틀게요."""
         state = self.get_voice_state(ctx.message.server)
         if state.is_playing():
@@ -169,7 +175,7 @@ class Music:
             player.resume()
 
     @commands.command(pass_context=True, no_pm=True)
-    async def stop(self, ctx):
+    async def 그만(self, ctx):
         """Stops playing audio and leaves the voice channel.
         This also clears the queue.
         """
@@ -189,7 +195,7 @@ class Music:
             pass
 
     @commands.command(pass_context=True, no_pm=True)
-    async def skip(self, ctx):
+    async def 넘겨(self, ctx):
         """Vote to skip a song. The song requester can automatically skip.
         3 skip votes are needed for the song to be skipped.
         """
