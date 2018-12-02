@@ -1,10 +1,8 @@
-import time
 import random
 import discord
 import asyncio
 from discord.ext import commands
 from discord.ext.commands import Bot
-from discord.voice_client import VoiceClient
 from discord import opus
 import os
 
@@ -21,7 +19,8 @@ def load_opus_lib(opus_libs=OPUS_LIBS):
 	    except OSError:
 		pass
 	
-	raise RuntimeError('Could not load an opus lib. Tried %s' % (', '.join(opus_libs)))
+    raise RuntimeError('Could not load an opus lib. Tried %s' % 
+		       (', '.join(opus_libs)))
 
 load_opus_lib()
 bot = commands.Bot("")
@@ -79,4 +78,4 @@ async def 김블루():
 
 
 
-bot.run(str(os.environ.get('BOT_TOKEN')))
+bot.run(os.environ['BOT_TOKEN'])
