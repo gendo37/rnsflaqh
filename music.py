@@ -6,7 +6,6 @@ from discord.voice_client import VoiceClient
 from discord import opus
 import functools, youtube_dl
 import random
-import os
 if not discord.opus.is_loaded():
     # the 'opus' library here is opus.dll on windows
     # or libopus.so on linux in the current directory
