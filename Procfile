@@ -1,1 +1,1 @@
-worker: python 돼장봇.py
+worker: python bot.py
