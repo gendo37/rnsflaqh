@@ -24,7 +24,6 @@ def load_opus_lib(opus_libs=OPUS_LIBS):
 	raise RuntimeError('Could not load an opus lib. Tried %s' % (', '.join(opus_libs)))
 
 load_opus_lib()
-api = str(os.environ.get('RIOT_KEY'))
 bot = commands.Bot("")
 for ext in  ["Mus"]:
     bot.load_extension(ext)
