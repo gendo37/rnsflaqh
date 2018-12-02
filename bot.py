@@ -24,7 +24,7 @@ def load_opus_lib(opus_libs=OPUS_LIBS):
 
 load_opus_lib()
 bot = commands.Bot("")
-for ext in  ["Mus"]:
+for ext in  ["music"]:
     bot.load_extension(ext)
  
 
