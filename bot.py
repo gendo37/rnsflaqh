@@ -25,16 +25,18 @@ def load_opus_lib(opus_libs=OPUS_LIBS):
  
 load_opus_lib()
 bot = commands.Bot(command_prefix="")
-
 for ext in  ["music"]:
     bot.load_extension(ext)
- 
 
-bot = commands.Bot("")
+rol=[]
+ser=[]
 
 @bot.event
 async def on_ready():
 	print('시작!')
+	await bot.change_presence(game=discord.Game(name='방송중'))
+    for i in bot.servers:
+        print(i.name)
 
 @bot.command()
 async def 돼장님():
