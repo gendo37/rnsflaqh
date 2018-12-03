@@ -1,7 +1,6 @@
 import asyncio
 import discord
 from discord.ext import commands
-from discord.ext.comands import Bot
 from discord.voice_client import VoiceClient
 from discord import opus
 import functools, youtube_dl
