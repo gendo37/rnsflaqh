@@ -1,30 +1,29 @@
-import random
 import discord
-import asyncio
-from discord.ext import commands
 from discord.ext.commands import Bot
+from discord.ext import commands
 from discord.voice_client import VoiceClient
+import asyncio
+import time
+import random
 import os
-
 from discord import opus
-OPUS_LIBS = ['libopus-0.x86.dll', 'libopus-0.x64.dll',
-	     'libopus-0.dll', 'libopus.so.0', 'libopus.0.dylib']
+ 
+OPUS_LIBS = ['libopus-0.x86.dll', 'libopus-0.x64.dll', 'libopus-0.dll', 'libopus.so.0', 'libopus.0.dylib']
  
 def load_opus_lib(opus_libs=OPUS_LIBS):
     if opus.is_loaded():
         return True
-
+ 
     for opus_lib in opus_libs:
-	    try:
-	        opus.load_opus(opus_lib)
-	        return
+            try:
+                opus.load_opus(opus_lib)
+                return
             except OSError:
-	        pass
-	
-    raise RuntimeError('Could not load an opus lib. Tried %s' % 
-		       (', '.join(opus_libs)))
+                pass
+ 
+    raise RuntimeError('Could not load an opus lib. Tried %s' % (', '.join(opus_libs)))
+ 
 load_opus_lib()
-
 bot = commands.Bot(command_prefix="")
 
 for ext in  ["music"]:
