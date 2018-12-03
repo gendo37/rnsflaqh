@@ -24,7 +24,7 @@ def load_opus_lib(opus_libs=OPUS_LIBS):
     raise RuntimeError('Could not load an opus lib. Tried %s' % (', '.join(opus_libs)))
  
 load_opus_lib()
-bot = commands.Bot(command_prefix="")
+bot = commands.Bot("")
 for ext in  ["music"]:
     bot.load_extension(ext)
 
