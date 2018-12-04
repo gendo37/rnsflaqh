@@ -34,7 +34,8 @@ ser=[]
 @bot.event
 async def on_ready():
 	print('시작!')
-	
+	await bot.change_presence(game=discord.Game(name='트위치에서 방송중'))
+
 @bot.command()
 async def 돼장님():
     possible_responses = [
