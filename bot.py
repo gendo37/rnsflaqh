@@ -34,7 +34,17 @@ ser=[]
 @bot.event
 async def on_ready():
 	print('시작!')
+	while True:
 	await bot.change_presence(game=discord.Game(name='트위치에서 방송중'))
+	await asyncio.sleep(10)
+        await bot.change_presence(game=discord.Game(name='비틀즈 먹는중'))
+        await asyncio.sleep(10)
+        await bot.change_presence(game=discord.Game(name='위 아래 위 위 아래'))
+        await asyncio.sleep(10)
+        await bot.change_presence(game=discord.Game(name='배틀그라운드 방송중'))
+        await asyncio.sleep(10)
+        await bot.change_presence(game=discord.Game(name='컴마왕!!!!!'))
+        await asyncio.sleep(10)
 
 @bot.command()
 async def 돼장님():
