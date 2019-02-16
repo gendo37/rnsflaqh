@@ -1,11 +1,11 @@
 import discord
-from discord.ext.commands import Bot
-from discord.ext import commands
-from discord.voice_client import VoiceClient
 import asyncio
+from discord.ext.commands import Bot
+import os
+from discord.voice_client import VoiceClient
+from discord.ext import commands
 import time
 import random
-import os
 from discord import opus
  
 OPUS_LIBS = ['libopus-0.x86.dll', 'libopus-0.x64.dll', 'libopus-0.dll', 'libopus.so.0', 'libopus.0.dylib']
@@ -28,8 +28,7 @@ bot = commands.Bot("")
 for ext in  ["music"]:
     bot.load_extension(ext)
 
-rol=[]
-ser=[]
+
 
 @bot.event
 async def on_ready():
