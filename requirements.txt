@@ -1,4 +1,4 @@
 discord
 requests
-youtube-dl==  2019.5.20
+youtube-dl==  2019.05.20
 discord.py[voice]
